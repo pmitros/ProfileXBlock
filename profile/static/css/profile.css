@@ -1,0 +1,9 @@
+/* CSS for ProfileXBlock */
+
+.profile_block .count {
+    font-weight: bold;
+}
+
+.profile_block p {
+    cursor: pointer;
+}
