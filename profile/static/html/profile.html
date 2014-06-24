@@ -1,162 +1,3 @@
-<style>
-body {
-	background: #fff;
-	color: #666;
-	font: 85%/140% Arial, Helvetica, sans-serif;
-	width: 800px;
-	max-width: 96%;
-	margin: 0 auto;
-}
-a {
-	color: #69C;
-	text-decoration: none;
-}
-a:hover {
-	color: #F60;
-}
-h1 {
-	font: 1.7em;
-	line-height: 110%;
-}
-h1, h2, h3 {
-	color: #555;
-}
-h3 {
-	border-top: solid 1px #eee;
-	padding: 20px 0;
-	margin: 20px 0 0;
-	font-size: 150%;
-}
-
-article {
-	background: #fafafa;
-        border-top:2px;
-	margin: 0 0 20px;
-}
-
-/* set html5 elements to block */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
-    display: block;
-}
-
-#pagewrap {
-	width: 978px;
-	max-width: 96%;
-	margin: 0 auto;
-}
-.wrapper {
-	overflow: hidden;
-}
-
-/************************************************************************************
-COLUMN
-*************************************************************************************/
-.col {
-	float: left;
-	margin-left: 3.2%;
-	margin-bottom: 30px;
-}
-.fullwidth .col {
-	float: none;
-	margin-left: 0;
-}
-/* grid4 col */
-.grid4 .col {
-	width: 22.6%;
-}
-/* grid3 col */
-.grid3 .col {
-	width: 31.2%;
-}
-/* grid2 col */
-.grid2 .col {
-	width: 48.4%;
-}
-/* clear col */
-.grid4 .col:nth-of-type(4n+1),
-.grid3 .col:nth-of-type(3n+1),
-.grid2 .col:nth-of-type(2n+1) {
-	margin-left: 0;
-
-}
-
-/************************************************************************************
-MEDIA QUERIES
-*************************************************************************************/
-/* reset cols to 3-column */
-@media screen and (max-width: 740px) {
-	/* grid4 */
-	.grid4 .col {
-		width: 31.2%;
-	}
-	.grid4 .col:nth-of-type(4n+1) {
-		margin-left: 3.2%;
-
-	}
-	.grid4 .col:nth-of-type(3n+1) {
-		margin-left: 0;
-
-	}
-}
-
-/* reset cols to 2-column */
-@media screen and (max-width: 600px) {
-	/* grid4 */
-	.grid4 .col {
-		width: 48.4%;
-	}
-	.grid4 .col:nth-of-type(3n+1) {
-		margin-left: 3.2%;
-	}
-	.grid4 .col:nth-of-type(2n+1) {
-		margin-left: 0;
-	}
-
-	/* grid3 */
-	.grid3 .col {
-		width: 48.4%;
-	}
-	.grid3 .col:nth-of-type(3n+1) {
-		margin-left: 3.2%;
-	}
-	.grid3 .col:nth-of-type(2n+1) {
-		margin-left: 0;
-	}
-}
-
-/* reset cols to fullwidth */
-@media screen and (max-width: 400px) {
-	/* grid4 */
-	.col {
-		width: 100% !important;
-		margin-left: 0 !important;
-
-	}
-}
-
-article {
-  border-width: 4px 0px 0px 0px;
-  border-style: solid;
-}
-
-article:nth-of-type(100n) {
-  border-color: azure;
-}
-
-article:nth-of-type(100n+1) {
-  border-color: aliceblue;
-}
-
-article:nth-of-type(100n+2) {
-  border-color: antiquewhite;
-}
-
-article:nth-of-type(100n+3) {
-  border-color: aquamarine;
-}
-
-</style>
-
 <!--[if lt IE 9]>
 	<script src="js/respond.js"></script>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -191,28 +32,37 @@ article:nth-of-type(100n+3) {
 	      <p> Name: <input type="text" placeholder="Your name"/></p>
 	      <div class="contact"/>
 	    </article>
+
+	    <article>
+	      <h1> Demographics </h1>
+	      <p> How old are you? </p>
+
+	      <p> What languages are you fluent in? </p>
+
+	      <textarea placeholder="English" style="width:95%;"></textarea>
+	    </article>
  
 	  </div>
 	
 	  <div class="col">
 	    <article>
-	    <p> What is your background in education? Have you taught? Taught
-	      physics? Are you involved in education research? Ed-tech? Etc? </p>
-	    
-	    <p> What is your background in technology? Are you a neophyte? A
-	      power user? Do you <p></p>rogram? Do you know HTML? Python? Javascript?
-	    How well?</p>
-	    
-	    <p> How old are you? </p>
-
-	    <p> What languages are you fluent in? </p>
-
-	    <p> Tell us a bit about yourself. Write a brief bio.</p>
+	      <img src="PHOTO_URL">
+	      <p> Share a photo! </p>
 	    </article>
 
 	    <article>
-	      <img src="PHOTO_URL">
-	      <p> Share a photo! </p>
+	      <p> What is your background in education? Have you taught? Taught
+		physics? Are you involved in education research? Ed-tech? Etc? </p>
+
+	      <textarea placeholder="Background in education and physics education" style="width:95%;"></textarea>
+
+	      <p> What is your background in technology? Are you a
+		neophyte? A power user? Do you program? Do you know
+		HTML? Python? Javascript?  How well?</p>
+	      
+	      <textarea placeholder="Background in technology" style="width:95%;"></textarea>
+
+	      <p> Tell us a bit about yourself. Write a brief bio.</p>
 	    </article>
 	  </div>		
 	</div>
