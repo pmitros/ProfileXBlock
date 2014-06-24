@@ -1,4 +1,4 @@
-"""TO-DO: Write a description of what this XBlock is."""
+""" This XBlock maintains a student profile page. """
 
 import pkg_resources
 
@@ -11,7 +11,7 @@ from xblock.fragment import Fragment
 
 class ProfileXBlock(XBlock):
     """
-    TO-DO: document what your XBlock does.
+    This XBlock maintains a student profile page. 
     """
 
     # Fields are defined on the class.  You can access them in your code as
@@ -35,7 +35,7 @@ class ProfileXBlock(XBlock):
         when viewing courses.
         """
         html = self.resource_string("static/html/profile.html")
-        frag = Fragment(html.format(self=self))
+        frag = Fragment(html)
         frag.add_css(self.resource_string("static/css/profile.css"))
         frag.add_javascript(self.resource_string("static/js/src/profile.js"))
         frag.initialize_js('ProfileXBlock')
