@@ -187,23 +187,15 @@ article:nth-of-type(100n+3) {
 	    </article>
 
 	    <article>
-	    <h1> Contact Information </h1>
-	    <p> Name: </p>
-	    <p> How can students reach you? <br>
-	    <div style="text-align:center"> <a>Add</a></div>
-	    <!--  E-mail: <br>
-	      Phone Number: <br>
-	      Skype: <br>
-	      Google+ page: <br>
-	      Facebook: <br>
-	      Twitter: <br>
-	      LinkedIn: <br>
-	    <p-->
+	      <h1> Contact Information </h1>
+	      <p> Name: <input type="text" placeholder="Your name"/></p>
+	      <div class="contact"/>
 	    </article>
  
 	  </div>
 	
 	  <div class="col">
+	    <article>
 	    <p> What is your background in education? Have you taught? Taught
 	      physics? Are you involved in education research? Ed-tech? Etc? </p>
 	    
@@ -216,9 +208,29 @@ article:nth-of-type(100n+3) {
 	    <p> What languages are you fluent in? </p>
 
 	    <p> Tell us a bit about yourself. Write a brief bio.</p>
+	    </article>
 
-	    <p> Share a photo! </p>
+	    <article>
+	      <img src="PHOTO_URL">
+	      <p> Share a photo! </p>
+	    </article>
 	  </div>		
 	</div>
 </div>
 <!-- /wrapper -->
+
+<script type="template/html" id="contact_info">
+  <p> How can students reach you? <br>
+    <div style="text-align:center"> <a>Add</a></div>
+    <div style="display:none"> 
+      E-mail: <br>
+      Phone Number: <br>
+      Skype: <br>
+      Google+ page: <br>
+      Facebook: <br>
+      Twitter: <br>
+      LinkedIn: <br>
+  </p>
+  
+
+</script>

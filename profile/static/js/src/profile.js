@@ -16,7 +16,19 @@ function ProfileXBlock(runtime, element) {
         });
     });
 
+    (function ( $ ) {
+	$.fn.contactinfo = function() {
+	    this.html($("#contact_info").html());
+	    
+	    console.log(this);
+	}
+    }(jQuery));
+
     $(function ($) {
         /* Here's where you'd do things on page load. */
+	console.log("Hello!");
+	
+	$(".contact",element).contactinfo();
+
     });
 }
