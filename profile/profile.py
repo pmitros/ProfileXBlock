@@ -8,6 +8,11 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer
 from xblock.fragment import Fragment
 
+def replace_template(source, dictionary):
+    processed = source
+    for key in dictionary:
+        processed = processed.replace(key, dictionary[key])
+    return processed
 
 class ProfileXBlock(XBlock):
     """
