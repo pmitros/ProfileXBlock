@@ -2,7 +2,7 @@
 
 import pkg_resources
 
-import mako
+#import mako
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer
@@ -11,6 +11,7 @@ from xblock.fragment import Fragment
 def replace_template(source, dictionary):
     processed = source
     for key in dictionary:
+        print key
         processed = processed.replace(key, dictionary[key])
     return processed
 
@@ -39,8 +40,12 @@ class ProfileXBlock(XBlock):
         The primary view of the ProfileXBlock, shown to students
         when viewing courses.
         """
-        html = self.resource_string("static/html/profile.html")
+        params = {
+            'PHOTO_URL' : self.runtime.resource_url('static/assets/profile.png')
+            }
+        html = replace_template(self.resource_string("static/html/profile.html"), params)
         frag = Fragment(html)
+        frag.add_javascript_url("//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js")
         frag.add_css(self.resource_string("static/css/profile.css"))
         frag.add_javascript(self.resource_string("static/js/src/profile.js"))
         frag.initialize_js('ProfileXBlock')
