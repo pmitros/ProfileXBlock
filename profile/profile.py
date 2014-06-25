@@ -1,5 +1,7 @@
 """ This XBlock maintains a student profile page. """
 
+import os.path
+
 import pkg_resources
 
 #import mako
@@ -7,6 +9,8 @@ import pkg_resources
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer
 from xblock.fragment import Fragment
+
+assets = ["email-16.png", "facebook-3-16.png", "github-16.png", "google-plus-4-16.png", "linkedin-16.png", "pages-3-16.png", "phone-16.png", "profile.png", "skype-16.png", "twitter-16.png"]
 
 def replace_template(source, dictionary):
     processed = source
@@ -43,9 +47,14 @@ class ProfileXBlock(XBlock):
         params = {
             'PHOTO_URL' : self.runtime.local_resource_url(self, 'public/assets/profile.png')
             }
+        for asset in assets:
+            params[asset] = self.runtime.local_resource_url(self, os.path.join("public/assets",asset))
         html = replace_template(self.resource_string("static/html/profile.html"), params)
         frag = Fragment(html)
         frag.add_javascript_url("//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js")
+        frag.add_css_url("//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css")
+        frag.add_javascript_url("//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js")
+
 # TODO: This would give nicer selects
 #        frag.add_css(self.resource_string("static/3rdparty/jquery.dropdown.css"))
 #        frag.add_javascript(self.resource_string("static/3rdparty/jquery.dropdown.min.js"))

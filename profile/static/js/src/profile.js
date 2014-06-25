@@ -12,7 +12,13 @@ var profile_data = {
 		   {'class'    : 'ProfileOneLiner', 
 		    'question' : 'Name', 
 		    'placeholder' : 'Your name' },
-		   {'class' : 'ProfileContactInfo'}
+		   {'class' : 'ProfileContactInfo', 
+		    'elements': [
+			{'label':'Telephone', 
+			 'placeholder' : '1(617)234-5678',
+			 'icon' : 'phone-16.png', 
+			},
+		   ]}
 	       ]},
 	     { 'class' : 'ProfileForm', 
 	       'title' : 'Demographics', 
