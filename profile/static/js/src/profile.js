@@ -12,30 +12,41 @@ var profile_data = {
 		   {'class'    : 'ProfileOneLiner', 
 		    'question' : 'Name', 
 		    'placeholder' : 'Your name' },
-		   {'class' : 'ProfileStaticText',
-		    'source':'profile_details'}
+		   {'class' : 'ProfileContactInfo'}
 	       ]},
-	     { 'class' : 'ProfileStaticText', 
-	       'source' : 'demographics'},
+	     { 'class' : 'ProfileForm', 
+	       'title' : 'Demographics', 
+	       'children' : [
+		   {'class'    : 'ProfileOneLiner', 
+		    'question' : 'Where do you live?', 
+		    'placeholder' : 'Toronto, Canada' },
+		   {'class'    : 'ProfileTextArea', 
+		    'question' : 'What languages are you fluent in?', 
+		    'placeholder' : 'English' },
+		   {'class'    : 'ProfileDropDown', 
+		    'question' : 'How old are you?', 
+		    'choices' : ['Under 13', '14-17', '18-24', '25-35', '35-50', 'Over 50'] },
+	       ]},
 	 ]},
 	{'class' : 'ProfileColumn', 
 	 'children' : [
 	     { 'class' : 'ProfileStaticText', 
 	       'source' : 'photo'},
-	     { 'class' : 'ProfileStaticText', 
-	       'source' : 'background'}//]}
-	/*    { 'class' : 'profile_block', 
-	      'title' : 'Contact Information',
-	      'contents' : {}},
-	      { 'class' : 'profile_block', 
-	      'title' : 'Demographics',
-	      'contents' : {}}, 
-	      { 'class' : 'break' }, 
-	      { 'class' : 'photo_block' }, 
-	      { 'class' : 'profile_block', 
-	      'title' : 'Background' }*/
-	 ]}]};
-//};
+	     { 'class' : 'ProfileForm', 
+	       'title' : 'Background', 
+	       'children' : [
+		   {'class'    : 'ProfileTextArea', 
+		    'question' : 'What is your background in education? Have you taught? Taught physics? Are you involved in education research? Ed-tech? Etc?', 
+		    'placeholder' : 'Background in education and physics education' },
+		   {'class'    : 'ProfileTextArea', 
+		    'question' : 'What is your background in technology? Are you a neophyte? A power user? Do you program? Do you know HTML? Python? Javascript?  How well?', 
+		    'placeholder' : 'Background in technology' },
+		   {'class'    : 'ProfileTextArea', 
+		    'question' : 'Tell us a bit about yourself. Write a brief bio.', 
+		    'placeholder' : 'Biographical Information' },
+	       ]},
+	 ]}
+    ]};
 
 
 function ProfileXBlock(runtime, element) {
@@ -72,6 +83,14 @@ function ProfileXBlock(runtime, element) {
 	    this.ProfileTemplateBlock("profile_one_liner", options);
 	}
 
+	$.fn.ProfileDropDown = function( options ) {
+	    this.ProfileTemplateBlock("profile_dropdown", options);
+	}
+
+	$.fn.ProfileTextArea = function( options ) {
+	    this.ProfileTemplateBlock("profile_text_area", options);
+	}
+
 	$.fn.ProfileTemplateBlock = function( template, options ) {
 	    var i;
 	    id = options.id;
@@ -84,10 +103,7 @@ function ProfileXBlock(runtime, element) {
 		options.children[i]["render"]='<div id="'+new_id+'"/>';
 	    }
 	    this.html(Mustache.render($("#"+template).html(),options));
-	    console.log(options.children.length);
 	    for(i=0; i<options.children.length; i++){
-		console.log(options.children[i].id);
-		console.log(options.children[i]);
 		$("#"+options.children[i].id).ProfileBlock(options.children[i]);
 	    }
 	}
@@ -99,10 +115,14 @@ function ProfileXBlock(runtime, element) {
 	$.fn.ProfileStaticText = function( options ) {
 	    this.html(Mustache.render($("#"+options.source).html(),options));
 	}
+
+	$.fn.ProfileContactInfo = function( options ) {
+	    this.ProfileTemplateBlock("contact_info", options);
+	}
 /*	$.fn.ProfileSection = function( options ) {
 	    this.html($("#profile_block").html()); 
 	}
-	$.fn.ContactInfo = function( options ) {
+	$.fn.ProfileContactInfo = function( options ) {
 	    this.html($("#contact_info").html());
 	    
 	    console.log(this);
