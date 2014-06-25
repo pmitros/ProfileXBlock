@@ -45,10 +45,24 @@ function ProfileXBlock(runtime, element) {
 
     (function ( $ ) {
 	$.fn.ProfileBlock = function( options ) {
+	    options["id"] = "profile_block"; 
 	    this[options['class']](options);
 	}	
 	$.fn.ProfileMainBlock = function( options ) {
+	    var id = options.id;
+	    for(i=0; i<options.children.length; i++){
+		var new_id = id+'_'+i;
+		$.extend(options.children[i], {'id': new_id});
+		options.children[i]["render"]='<div id="'+new_id+'"/>';
+	    }	
 	    this.html(Mustache.render($("#profile_block").html(),options));
+	    for(i=0; i<options.children.length; i++){
+		$("#"+options.children[i].id).ProfileBlock(options.children[i]);
+	    }
+	}
+	$.fn.ProfileStaticText = function( options ) {
+	    console.log($("#"+options.source).html());
+	    this.html(Mustache.render($("#"+options.source).html(),options));
 	}
 /*	$.fn.ProfileSection = function( options ) {
 	    this.html($("#profile_block").html()); 
@@ -62,8 +76,6 @@ function ProfileXBlock(runtime, element) {
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
-	console.log("Hello!");
-	
 	$(".profileblock", element).ProfileBlock( profile_data );
 /*	$(".contact",element).ContactInfo( {} );*/
 

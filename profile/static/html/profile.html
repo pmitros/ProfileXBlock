@@ -33,49 +33,49 @@
 	<div class="wrapper grid2">
 	  
 	  <div class="col">
-	    <article>
-	    <p> You'll be working with other students in this
-	      class. Your profile will help your fellow students find
-	      you and get to know you. Likewise, you'll be able to see
-	      your peers' profiles to help you find people to work
-	      with. </p>
-	    
-	    <p> You can choose to share as much or as little as you
-	      want, but sharing more may give you a better experience
-	      in the class. </p>
-	    </article>
-
-	    <article>
-	      <h1> Contact Information </h1>
-	      <p> Name: <input type="text" placeholder="Your name"/></p>
-	      <div class="contact"/>
-	    </article>
-
-	    <article>
-	      <h1> Demographics </h1>
-	      <p> How old are you? </p>
-
-	      <p> What languages are you fluent in? </p>
-
-	      <textarea placeholder="English" style="width:95%;"></textarea>
-
-	      <p> Where do you live? 
-	      <input placeholder="Toronto, Canada" type="text"></p>
-	    </article>
- 
+	    {{#children}}
+	    <article>{{{render}}}</article>
+	    {{/children}}
 	  </div>
 	
 	  <div class="col">
-	    <article>
-	      <img src="PHOTO_URL">
-	      <p> Share a photo! </p>
-	    </article>
-
-	    <article class="profile_block" source="background">
-	    </article>
 	  </div>		
 	</div>
+</script>
 
+<script id="profile_overview" type="template/html">
+  <p> You'll be working with other students in this
+    class. Your profile will help your fellow students find
+    you and get to know you. Likewise, you'll be able to see
+    your peers' profiles to help you find people to work
+    with. </p>
+  
+  <p> You can choose to share as much or as little as you
+    want, but sharing more may give you a better experience
+    in the class. </p>
+</script>
+
+<script id="contact_information" type="template/html">
+  <h1> Contact Information </h1>
+  <p> Name: <input type="text" placeholder="Your name"/></p>
+  <div class="contact"/>
+</script>
+
+<script id="demographics" type="template/html">
+  <h1> Demographics </h1>
+  <p> How old are you? </p>
+  
+  <p> What languages are you fluent in? </p>
+  
+  <textarea placeholder="English" style="width:95%;"></textarea>
+  
+  <p> Where do you live? 
+    <input placeholder="Toronto, Canada" type="text"></p>
+</script>
+
+<script id="photo" type="template/html">
+  <img src="PHOTO_URL">
+  <p> Share a photo! </p>
 </script>
 
 <script id="background" type="template/html">
