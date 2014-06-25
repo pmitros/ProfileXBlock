@@ -87,21 +87,6 @@ class ProfileXBlock(XBlock):
             ("ProfileXBlock",
              """<vertical_demo>
                 <profile>
-- - Educational background
-  - question: What is your background in education? Have you taught? Taught physics? Are you involved in education research? Ed-tech? Etc? 
-    field: textarea
-- - Technology background
-  - question: What is your background in technology? Are you a neophyte? A power user? Do you program? Do you know HTML? Python? Javascript? How well? 
-    field: textarea
-- - Age range 
-  - question: Please select your age range
-    field: ["0-17", "18-20", "21-25", "26-35", "36-50", "51+"]
-- - Language 
-  - question: What is your native language?
-    field: textline
-- - Bio
-  - question: Please enter your bio
-    field: textarea
                 </profile>
                 </vertical_demo>
              """),
