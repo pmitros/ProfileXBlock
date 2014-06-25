@@ -13,7 +13,7 @@
 </div>
 <!-- /wrapper -->
 
-<script type="template/html" id="contact_info">
+<script type="x-tmpl-mustache" id="profile_contact_info">
   <p> How can peers reach you?
     <div> <div style="display:none" /> 
       {{#elements}}
@@ -22,7 +22,7 @@
   </p>
 </script>
 
-<script type="template/html" id="profile_block">
+<script type="x-tmpl-mustache" id="profile_block">
 	<h1 style="text-align:left">Your Profile</h1>
 
 	<div class="wrapper grid2">
@@ -32,7 +32,7 @@
 	</div>
 </script>
 
-<script type="template/html" id="profile_column">
+<script type="x-tmpl-mustache" id="profile_column">
   <div class="col">
     {{#children}}
     <article>{{{render}}}</article>
@@ -40,7 +40,7 @@
   </div>
 </script>
 
-<script id="profile_overview" type="template/html">
+<script id="profile_overview" type="x-tmpl-mustache">
   <p> You'll be working with other students in this
     class. Your profile will help your fellow students find
     you and get to know you. Likewise, you'll be able to see
@@ -52,22 +52,18 @@
     in the class. </p>
 </script>
 
-<script id="profile_form" type="template/html">
+<script id="profile_form" type="x-tmpl-mustache">
   <h1> {{title}} </h1>
   {{#children}}
   {{{render}}}
   {{/children}}
 </script>
 
-<script type="template/html" id="profile_one_liner" 
+<script type="x-tmpl-mustache" id="profile_one_liner" 
   <p> {{question}}: <input type="text" placeholder="{{placeholder}}"/></p>
 </script>
 
-<script type="template/html" id="profile_contact_info">
-  TODO: Block for adding phone, etc. 
-</script>
-
-<script type="template/html" id="profile_dropdown">
+<script type="x-tmpl-mustache" id="profile_dropdown">
 Age: <select>
     {{#choices}}
     <option>{{item}}</option>
@@ -75,12 +71,12 @@ Age: <select>
     </select>
 </script>
 
-<script type="template/html" id="profile_text_area">
+<script type="x-tmpl-mustache" id="profile_text_area">
   <p> {{question}} </p>
-  <textarea placeholder="{{placeholder}}" style="width:95%;"></textarea>  
+  <textarea placeholder="{{placeholder}}" style="width:95%;" rows={{rows}}>{{value}}</textarea>  
 </script>
 
-<script id="photo" type="template/html">
+<script id="photo" type="x-tmpl-mustache">
   <center>
     <img height=211 width=196 src="PHOTO_URL">
   </center>

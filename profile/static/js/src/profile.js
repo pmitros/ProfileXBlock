@@ -64,7 +64,8 @@ var profile_data = {
 		    "placeholder" : "Toronto, Canada" },
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "What languages are you fluent in?", 
-		    "placeholder" : "English" },
+		    "placeholder" : "English", 
+		    "rows":2},
 		   {"class"    : "ProfileDropDown", 
 		    "question" : "How old are you?", 
 		    "choices" : [{"item": "Prefer not to say"}, {"item":"Under 13"}, {"item":"14-17"}, {"item":"18-24"}, {"item":"25-35"}, {"item":"35-50"}, {"item":"Over 50"}]}
@@ -79,13 +80,16 @@ var profile_data = {
 	       "children" : [
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "What is your background in education? Have you taught? Taught physics? Are you involved in education research? Ed-tech? Etc?", 
-		    "placeholder" : "Background in education and physics education" },
+		    "placeholder" : "Background in education and physics education", 
+		    "rows":3},
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "What is your background in technology? Are you a neophyte? A power user? Do you program? Do you know HTML? Python? Javascript?  How well?", 
-		    "placeholder" : "Background in technology" },
+		    "placeholder" : "Background in technology", 
+		    "rows":3},
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "Tell us a bit about yourself. Write a brief bio.", 
-		    "placeholder" : "Biographical Information" }
+		    "placeholder" : "Biographical Information", 
+		    "rows":4}
 	       ]}
 	 ]}
     ]};
@@ -163,7 +167,7 @@ function ProfileXBlock(runtime, element) {
 		    options.elements[i].icon = profile_asset_map[options.elements[i].icon];
 		}
 	    }
-	    this.ProfileTemplateBlock("contact_info", options);
+	    this.ProfileTemplateBlock("profile_contact_info", options);
 	}
     }(jQuery));
 
