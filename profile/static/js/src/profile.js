@@ -13,6 +13,7 @@ var profile_data = {
 	       "children" : [
 		   {"class"    : "ProfileOneLiner", 
 		    "question" : "Name", 
+		    "field" : "name",
 		    "placeholder" : "Your name" },
 		   {"class" : "ProfileContactInfo", 
 		    "children": [
@@ -69,7 +70,8 @@ var profile_data = {
 	       "title" : "Demographics", 
 	       "children" : [
 		   {"class"    : "ProfileOneLiner", 
-		    "question" : "Where do you live?", 
+		    "question" : "Where do you live?",
+		    "field" : "location", 
 		    "placeholder" : "Toronto, Canada" },
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "What languages are you fluent in?", 
@@ -105,10 +107,6 @@ var profile_data = {
 
 function ProfileXBlock(runtime, element) {
 
-    function updateCount(result) {
-        $('.count', element).text(result.count);
-    }
-
     var handlerUrl = runtime.handlerUrl(element, 'increment_count');
 
     $('p', element).click(function(eventObject) {
@@ -135,6 +133,15 @@ function ProfileXBlock(runtime, element) {
 
 	$.fn.ProfileOneLiner = function( options ) {
 	    this.ProfileTemplateBlock("profile_one_liner", options);
+	    var input=$("input", this);
+	    input.change(function(event) {
+		$.ajax({
+		    type:"POST",
+		    url: runtime.handlerUrl(element, "update_profile"),
+		    data: JSON.stringify({'field': options.field, 
+					  'value' : input.val()})
+		});
+	    });
 	}
 
 	$.fn.ProfileContactBox = function( options ) {

@@ -7,7 +7,7 @@ import pkg_resources
 #import mako
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Integer
+from xblock.fields import Scope, Dict
 from xblock.fragment import Fragment
 
 assets = ["email-16.png", "facebook-3-16.png", "github-16.png", "google-plus-4-16.png", "linkedin-16.png", "pages-3-16.png", "phone-16.png", "profile.png", "skype-16.png", "twitter-16.png"]
@@ -15,7 +15,6 @@ assets = ["email-16.png", "facebook-3-16.png", "github-16.png", "google-plus-4-1
 def replace_template(source, dictionary):
     processed = source
     for key in dictionary:
-        print key
         processed = processed.replace(key, dictionary[key])
     return processed
 
@@ -28,9 +27,9 @@ class ProfileXBlock(XBlock):
     # self.<fieldname>.
 
     # TO-DO: delete count, and define your own fields.
-    count = Integer(
-        default=0, scope=Scope.user_state,
-        help="A simple counter, to show something happening",
+    user_profile = Dict(
+        default={}, scope=Scope.user_state,
+        help="The user's profile information",
     )
 
     def resource_string(self, path):
@@ -66,15 +65,18 @@ class ProfileXBlock(XBlock):
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
     @XBlock.json_handler
-    def increment_count(self, data, suffix=''):
+    def update_profile(self, data, suffix=''):
         """
         An example handler, which increments the data.
         """
         # Just to show data coming in...
-        assert data['hello'] == 'world'
+        field = data['field']
+        value = data['value']
+        if not isinstance(value, basestring):
+            raise TypeError("Fields must be strings. This exception indicates either a bug or a hacking attempt.")
+        self.user_profile[field] = value;
 
-        self.count += 1
-        return {"count": self.count}
+        return {'status':'success'}
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
