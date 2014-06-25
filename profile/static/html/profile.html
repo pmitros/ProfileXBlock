@@ -57,10 +57,28 @@
     in the class. </p>
 </script>
 
-<script id="contact_information" type="template/html">
-  <h1> Contact Information </h1>
-  <p> Name: <input type="text" placeholder="Your name"/></p>
-  <div class="contact"/>
+<script id="profile_form" type="template/html">
+  <h1> {{title}} </h1>
+  {{#children}}
+  {{{render}}}
+  {{/children}}
+</script>
+
+<script id="profile_one_liner" 
+  <p> {{question}}: <input type="text" placeholder="{{placeholder}}"/></p>
+</script>
+
+<script id="profile_contact_info">
+  TODO: Block for adding phone, etc. 
+</script>
+
+<script id="profile_dropdown">
+  TODO: Block for seeing a drop down for age
+</script>
+
+<script id="profile_text_area">
+  <p> {{question}} </p>
+  <textarea placeholder="{{placeholder}}" style="width:95%;"></textarea>  
 </script>
 
 <script id="demographics" type="template/html">

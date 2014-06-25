@@ -64,6 +64,7 @@ COLUMN
 	float: left;
 	margin-left: 3.2%;
 	margin-bottom: 30px;
+	padding-right : 10px;
 }
 .fullwidth .col {
 	float: none;
