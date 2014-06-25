@@ -31,16 +31,20 @@
 	<h1 style="text-align:left">Your Profile</h1>
 
 	<div class="wrapper grid2">
-	  
 	  <div class="col">
 	    {{#children}}
 	    <article>{{{render}}}</article>
 	    {{/children}}
 	  </div>
-	
-	  <div class="col">
-	  </div>		
 	</div>
+</script>
+
+<script type="template/html" id="profile_column">
+  <div class="col">
+    {{#children}}
+    <article>{{{render}}}</article>
+    {{/children}}
+  </div>
 </script>
 
 <script id="profile_overview" type="template/html">
