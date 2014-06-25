@@ -16,15 +16,9 @@
 <script type="template/html" id="contact_info">
   <p> How can peers reach you?
     <div> <div style="display:none" /> 
-      <span><img src="phone-16.png"/><span style="width:150px; display:inline-block; text-align:right"> Telephone: </span><input type="text" placeholder="1(617)234-5678" /></span><br>
-      <img src="email-16.png"/> E-mail: <input type="text" placeholder="jsmith@edx.org" /> <br>
-      <img src="pages-3-16.png"/> Web site: <input type="text" placeholder="http://www.edx.org/" /> <br>
-      <img src="skype-16.png"/> Skype username: <input type="text" placeholder="" /> <br>
-      <img src="facebook-3-16.png"/> http://facebook.com/<input type="text" placeholder="" /> <br>
-      <img src="google-plus-4-16.png"/> http://plus.google.com/<input type="text" placeholder="" /> <br>
-      <img src="github-16.png"/>http://github.com/<input type="text" placeholder="" /> <br>
-      <img src="linkedin-16.png"/>http://linkedin.com/in/<input type="text" placeholder="" /> <br>
-      <img src="twitter-16.png"/>http://twitter.com/<input type="text" placeholder="" /> <br>
+      {{#elements}}
+      <span title="{{help}}"><img src="{{icon}}"/><span style="width:150px; display:inline-block; text-align:right"> {{label}} </span><input type="text" placeholder="{{placeholder}}" /></span><br>
+      {{/elements}}
   </p>
 </script>
 
@@ -90,4 +84,18 @@ Age: <select>
   <center>
     <img height=211 width=196 src="PHOTO_URL">
   </center>
+</script>
+
+<script id="profile_asset_map" type="template/json">
+{
+"email": "email-16.png",
+"facebook": "facebook-3-16.png",
+"github": "github-16.png",
+"google-plus": "google-plus-4-16.png",
+"linkedin": "linkedin-16.png",
+"pages": "pages-3-16.png",
+"phone": "phone-16.png",
+"skype": "skype-16.png",
+"twitter": "twitter-16.png"
+}
 </script>
