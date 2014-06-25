@@ -16,10 +16,18 @@
 <script type="x-tmpl-mustache" id="profile_contact_info">
   <p> How can peers reach you?
     <div> <div style="display:none" /> 
-      {{#elements}}
-      <span title="{{help}}"><img src="{{icon}}"/><span style="width:150px; display:inline-block; text-align:right"> {{label}} </span><input type="text" placeholder="{{placeholder}}" /></span><br>
-      {{/elements}}
+      {{#children}}
+      {{{render}}}
+      {{/children}}
   </p>
+</script>
+
+<script type="x-tmpl-mustache" id="profile_contact_box">
+  <span title="{{help}}">
+    <img src="{{icon}}"/>
+    <span style="width:150px; display:inline-block; text-align:right"> {{label}} </span>
+    <input type="text" placeholder="{{placeholder}}" />
+  </span><br>
 </script>
 
 <script type="x-tmpl-mustache" id="profile_block">

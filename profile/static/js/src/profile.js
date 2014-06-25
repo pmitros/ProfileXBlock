@@ -15,42 +15,51 @@ var profile_data = {
 		    "question" : "Name", 
 		    "placeholder" : "Your name" },
 		   {"class" : "ProfileContactInfo", 
-		    "elements": [
+		    "children": [
 			{"label":"Telephone", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "1(617)234-5678",
 			 "icon" : "phone"
 			},
 			{"label":"E-mail:", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "jsmith@edx.org",
 			 "icon" : "email"
 			},
 			{"label":"Web site: ", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "http://www.edx.org/",
 			 "icon" : "pages"
 			},
 			{"label":"Skype username", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "",
 			 "icon" : "skype"
 			},
 			{"label":"http://facebook.com/", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "",
 			 "icon" : "facebook",
 			 "help" : "For help reserving a Facebook URL, see https://www.facebook.com/help/200712339971750#How-do-I-customize-my-timeline-or-Page-address?-Where-can-I-claim-a-username?"
 			},
 			{"label":"http://plus.google.com/", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "",
 			 "icon" : "google-plus"
 			},
 			{"label":"http://github.com/", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "",
 			 "icon" : "github"
 			},
 			{"label":"http://linkedin.com/in/", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "",
 			 "icon" : "linkedin", 
 			 "help": "For help reserving a LinkedIn URL, see http://help.linkedin.com/app/answers/detail/a_id/87"
 			},
 			{"label":"http://twitter.com/", 
+			 "class":"ProfileContactBox", 
 			 "placeholder" : "",
 			 "icon" : "twitter"
 			}
@@ -128,6 +137,10 @@ function ProfileXBlock(runtime, element) {
 	    this.ProfileTemplateBlock("profile_one_liner", options);
 	}
 
+	$.fn.ProfileContactBox = function( options ) {
+	    this.ProfileTemplateBlock("profile_contact_box", options);
+	}
+
 	$.fn.ProfileDropDown = function( options ) {
 	    this.ProfileTemplateBlock("profile_dropdown", options);
 	}
@@ -162,9 +175,9 @@ function ProfileXBlock(runtime, element) {
 	}
 
 	$.fn.ProfileContactInfo = function( options ) {
-	    for(i = 0; i<options.elements.length; i++) {
-		if (typeof profile_asset_map[options.elements[i].icon] != 'undefined') {
-		    options.elements[i].icon = profile_asset_map[options.elements[i].icon];
+	    for(i = 0; i<options.children.length; i++) {
+		if (typeof profile_asset_map[options.children[i].icon] != 'undefined') {
+		    options.children[i].icon = profile_asset_map[options.children[i].icon];
 		}
 	    }
 	    this.ProfileTemplateBlock("profile_contact_info", options);
