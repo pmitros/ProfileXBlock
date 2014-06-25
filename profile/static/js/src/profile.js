@@ -25,7 +25,7 @@ var profile_data = {
 		    'placeholder' : 'English' },
 		   {'class'    : 'ProfileDropDown', 
 		    'question' : 'How old are you?', 
-		    'choices' : ['Under 13', '14-17', '18-24', '25-35', '35-50', 'Over 50'] },
+		    'choices' : [{'item':'Under 13'}, {'item':'14-17'}, {'item':'18-24'}, {'item':'25-35'}, {'item':'35-50'}, {'item':'Over 50'}]},
 	       ]},
 	 ]},
 	{'class' : 'ProfileColumn', 

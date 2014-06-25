@@ -41,11 +41,14 @@ class ProfileXBlock(XBlock):
         when viewing courses.
         """
         params = {
-            'PHOTO_URL' : self.runtime.resource_url('static/assets/profile.png')
+            'PHOTO_URL' : self.runtime.local_resource_url(self, 'public/assets/profile.png')
             }
         html = replace_template(self.resource_string("static/html/profile.html"), params)
         frag = Fragment(html)
         frag.add_javascript_url("//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js")
+# TODO: This would give nicer selects
+#        frag.add_css(self.resource_string("static/3rdparty/jquery.dropdown.css"))
+#        frag.add_javascript(self.resource_string("static/3rdparty/jquery.dropdown.min.js"))
         frag.add_css(self.resource_string("static/css/profile.css"))
         frag.add_javascript(self.resource_string("static/js/src/profile.js"))
         frag.initialize_js('ProfileXBlock')

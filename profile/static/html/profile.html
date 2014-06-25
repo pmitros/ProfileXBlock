@@ -14,10 +14,11 @@
 <!-- /wrapper -->
 
 <script type="template/html" id="contact_info">
-  <p> How can students reach you? <br>
+  <p> How can peers reach you? <br>
     <div style="text-align:center"> <a>Add</a></div>
-    <div style="display:none"> 
+    <div> <div style="display:none" /> 
       E-mail: <br>
+      Web site: <br>
       Phone Number: <br>
       Skype: <br>
       Google+ page: <br>
@@ -73,7 +74,11 @@
 </script>
 
 <script type="template/html" id="profile_dropdown">
-  TODO: Block for seeing a drop down for age
+Age: <select>
+    {{#choices}}
+    <option>{{item}}</option>
+    {{/choices}}
+    </select>
 </script>
 
 <script type="template/html" id="profile_text_area">
@@ -82,6 +87,7 @@
 </script>
 
 <script id="photo" type="template/html">
-  <img src="PHOTO_URL">
-  <p> Share a photo! </p>
+  <center>
+    <img height=211 width=196 src="PHOTO_URL">
+  </center>
 </script>
