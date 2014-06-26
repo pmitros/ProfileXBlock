@@ -72,6 +72,7 @@ class ProfileXBlock(XBlock):
         # Just to show data coming in...
         field = data['field']
         value = data['value']
+        print field, value
         if not isinstance(value, basestring):
             raise TypeError("Fields must be strings. This exception indicates either a bug or a hacking attempt.")
         self.user_profile[field] = value;

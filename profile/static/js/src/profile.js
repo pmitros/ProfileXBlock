@@ -76,6 +76,7 @@ var profile_data = {
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "What languages are you fluent in?", 
 		    "placeholder" : "English", 
+		    "field" : "edx.languages",
 		    "rows":2},
 		   {"class"    : "ProfileDropDown", 
 		    "question" : "How old are you?", 
@@ -92,14 +93,17 @@ var profile_data = {
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "What is your background in education? Have you taught? Taught physics? Are you involved in education research? Ed-tech? Etc?", 
 		    "placeholder" : "Background in education and physics education", 
+		    "field" : "cphys.edbackground",
 		    "rows":3},
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "What is your background in technology? Are you a neophyte? A power user? Do you program? Do you know HTML? Python? Javascript?  How well?", 
+		    "field" : "cphys.techbackground",
 		    "placeholder" : "Background in technology", 
 		    "rows":3},
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "Tell us a bit about yourself. Write a brief bio.", 
 		    "placeholder" : "Biographical Information", 
+		    "field" : "cphys.bio",
 		    "rows":4}
 	       ]}
 	 ]}
@@ -154,6 +158,17 @@ function ProfileXBlock(runtime, element) {
 
 	$.fn.ProfileTextArea = function( options ) {
 	    this.ProfileTemplateBlock("profile_text_area", options);
+	    var input=$("textarea", this);
+	    console.log(options.field);
+	    console.log(input.val());
+	    input.change(function(event) {
+		$.ajax({
+		    type:"POST",
+		    url: runtime.handlerUrl(element, "update_profile"),
+		    data: JSON.stringify({'field': options.field, 
+					  'value' : input.val()})
+		});
+	    });
 	}
 
 	$.fn.ProfileTemplateBlock = function( template, options ) {
