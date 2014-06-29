@@ -18,11 +18,18 @@ actively developing it. For example,
 
 * There is a JSON configuration language, but the configuration is
   hard-coded in the XBlock
-* Photo uploads don't work
+* Photo uploads don't work. How to upload an image with XBlocks? 
 * The list of contact information (Facebook, etc.) is ugly
 * There is no way for students to view each others' profiles
 * Profile info is stored, but when a user refreshes, the form doesn't
   repopulate with it.
+* Is there a better way to handle phone number (esp. regarding country codes?)
+* Should we edit live (as we do now), or have a save button? 
+* How should we phrase open-ended questions so we get clear,
+  consistent answers?
+* Will users find the number of contact info input fields
+  overwhelming or privacy-invading?
+
 
 This README file probably won't be updated often (specifically, not
 until the XBlock is done). Odds are, by the time you read this, a few
@@ -30,3 +37,4 @@ of these will be fixed, and a few will still be outstanding (in
 particular, ones where we run into rough edges with the XBlocks
 architecture, where it makes sense to fix XBlocks rather than hacking
 around).
+
