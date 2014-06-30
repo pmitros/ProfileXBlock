@@ -25,7 +25,7 @@
 <script type="x-tmpl-mustache" id="profile_contact_box">
   <span title="{{help}}">
     <span style="width:150px; display:inline-block; text-align:right"> {{label}} </span>
-    <input type="text" placeholder="{{placeholder}}" style="width:125px"/>
+    <input type="text" placeholder="{{placeholder}}" value="{{value}}" style="width:125px"/>
   </span><img src="{{icon}}"/><br>
 </script>
 
@@ -67,16 +67,21 @@
 </script>
 
 <script type="x-tmpl-mustache" id="profile_one_liner" 
-  <p> {{question}}: <input type="text" placeholder="{{placeholder}}"/></p>
+  <p> {{question}}: <input type="text" placeholder="{{placeholder}}" value="{{value}}"/></p>
 </script>
 
 <script type="x-tmpl-mustache" id="profile_dropdown">
-Age: <select>
-    {{#choices}}
-    <option>{{item}}</option>
-    {{/choices}}
-    </select>
-</script>
+<div style="display:flex">
+     <div style="flex-grow; ">Age:</div> 
+     <div>
+       <div class="inactive-edit">{{choices.value}}</div>
+       <select>
+	 {{#choices}}
+	 <option {{selected}}>{{item}}</option>
+	 {{/choices}}
+       </select>
+     </div>
+</div></script>
 
 <script type="x-tmpl-mustache" id="profile_text_area">
   <p> {{question}} </p>
