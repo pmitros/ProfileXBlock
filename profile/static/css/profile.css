@@ -8,11 +8,11 @@
     cursor: pointer;
 }
 
-active-edit{
-    display:none;
+.active-edit{
 }
 
-inactive-edit{
+.inactive-edit{
+    display:none;
 }
 
 body {

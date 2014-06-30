@@ -15,10 +15,11 @@
 
 <script type="x-tmpl-mustache" id="profile_contact_info">
   <p> How can peers reach you?
-    <div> <div style="display:none" /> 
+    <div> 
       {{#children}}
       {{{render}}}
       {{/children}}
+    </div>
   </p>
 </script>
 
@@ -66,8 +67,16 @@
   {{/children}}
 </script>
 
-<script type="x-tmpl-mustache" id="profile_one_liner" 
-  <p> {{question}}: <input type="text" placeholder="{{placeholder}}" value="{{value}}"/></p>
+<script type="x-tmpl-mustache" id="profile_one_liner">
+<div style="display:flex;">
+  <div> {{question}}:</div>
+  <div> 
+    <div class="inactive-edit">{{value}}</div>
+    <div class="active-edit">
+      <input type="text" placeholder="{{placeholder}}" value="{{value}}"/> 
+    </div>
+  </div>
+</div>
 </script>
 
 <script type="x-tmpl-mustache" id="profile_dropdown">
@@ -85,7 +94,12 @@
 
 <script type="x-tmpl-mustache" id="profile_text_area">
   <p> {{question}} </p>
-  <textarea placeholder="{{placeholder}}" style="width:95%;" rows={{rows}}>{{value}}</textarea>  
+     <div>
+       <div class="inactive-edit">{{value}}</div>
+       <div class="active-edit">
+         <textarea placeholder="{{placeholder}}" style="width:95%;" rows={{rows}}>{{value}}</textarea>  
+       </div>
+     </div>
 </script>
 
 <script id="photo" type="x-tmpl-mustache">
