@@ -10,6 +10,8 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Dict
 from xblock.fragment import Fragment
 
+import profile_json
+
 assets = ["email-16.png", "facebook-3-16.png", "github-16.png", "google-plus-4-16.png", "linkedin-16.png", "pages-3-16.png", "phone-16.png", "profile.png", "skype-16.png", "twitter-16.png"]
 
 def replace_template(source, dictionary):
@@ -59,7 +61,8 @@ class ProfileXBlock(XBlock):
 #        frag.add_javascript(self.resource_string("static/3rdparty/jquery.dropdown.min.js"))
         frag.add_css(self.resource_string("static/css/profile.css"))
         frag.add_javascript(self.resource_string("static/js/src/profile.js"))
-        frag.initialize_js('ProfileXBlock', {'profile_data' : self.user_profile})
+        frag.initialize_js('ProfileXBlock', {'profile_data' : self.user_profile, 
+                                             'profile_config':profile_json.profile_config})
         return frag
 
     # TO-DO: change this handler to perform your own actions.  You may need more
