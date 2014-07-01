@@ -15,8 +15,7 @@
 <script type="x-tmpl-mustache" id="profile_contact_box">
   <span title="{{help}}">
     <img src="{{icon}}"/>
-    <span style="width:150px; display:inline-block; text-align:right"> {{label}} </span>
-    <input type="text" placeholder="{{placeholder}}" value="{{value}}" style="width:125px"/>
+    {{value}} ({{label}})
   </span><br>
 </script>
 
@@ -32,9 +31,11 @@
 
 <script type="x-tmpl-mustache" id="profile_column">
   <div class="col">
-    {{#children}}
-    <article>{{{render}}}</article>
-    {{/children}}
+    <article>
+      {{#children}}
+      {{{render}}}
+      {{/children}}
+    </article>
   </div>
 </script>
 
@@ -49,12 +50,9 @@
 
 <script type="x-tmpl-mustache" id="profile_one_liner">
 <div style="display:flex;" class="profile_one_liner">
-  <div> {{question}}:</div>
+  <div> {{question}}</div>
   <div class="active-inactive-container" style="flex-grow:1; padding:0px 10px 0px 10px;"> 
-    <div class="inactive-edit">{{value}}</div>
-    <div class="active-edit">
-      <input type="text" placeholder="{{placeholder}}" value="{{value}}"/> 
-    </div>
+    {{value}}
   </div>
 </div>
 </script>
@@ -74,12 +72,7 @@
 
 <script type="x-tmpl-mustache" id="profile_text_area">
   <p> {{question}} </p>
-     <div class="active-inactive-container">
-       <div class="inactive-edit" style="min-height:22px;">{{value}}</div>
-       <div class="active-edit">
-         <textarea placeholder="{{placeholder}}" style="width:95%;" rows="{{rows}}">{{value}}</textarea>  
-       </div>
-     </div>
+  <div class="profile_reponse">{{value}}</div>
 </script>
 
 <script id="photo" type="x-tmpl-mustache">
