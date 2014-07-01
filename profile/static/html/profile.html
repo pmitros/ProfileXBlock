@@ -68,9 +68,9 @@
 </script>
 
 <script type="x-tmpl-mustache" id="profile_one_liner">
-<div style="display:flex;">
+<div style="display:flex;" class="profile_one_liner">
   <div> {{question}}:</div>
-  <div> 
+  <div class="active-inactive-container" style="flex-grow:1; padding:0px 10px 0px 10px;"> 
     <div class="inactive-edit">{{value}}</div>
     <div class="active-edit">
       <input type="text" placeholder="{{placeholder}}" value="{{value}}"/> 
@@ -82,8 +82,8 @@
 <script type="x-tmpl-mustache" id="profile_dropdown">
 <div style="display:flex">
      <div style="flex-grow; ">Age:</div> 
-     <div>
-       <div class="inactive-edit">{{choices.value}}</div>
+     <div class="active-inactive-container">
+<!--       <div class="inactive-edit">{{choices.value}}</div> -->
        <select>
 	 {{#choices}}
 	 <option {{selected}}>{{item}}</option>
@@ -94,10 +94,10 @@
 
 <script type="x-tmpl-mustache" id="profile_text_area">
   <p> {{question}} </p>
-     <div>
-       <div class="inactive-edit">{{value}}</div>
+     <div class="active-inactive-container">
+       <div class="inactive-edit" style="min-height:22px;">{{value}}</div>
        <div class="active-edit">
-         <textarea placeholder="{{placeholder}}" style="width:95%;" rows={{rows}}>{{value}}</textarea>  
+         <textarea placeholder="{{placeholder}}" style="width:95%;" rows="{{rows}}">{{value}}</textarea>  
        </div>
      </div>
 </script>

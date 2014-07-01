@@ -146,7 +146,9 @@ function ProfileXBlock(runtime, element, data) {
 
 	$.fn.ProfileOneLiner = function( options ) {
 	    this.ProfileTemplateBlock("profile_one_liner", options);
+	    var container = this;
 	    var input=$("input", this);
+	    var inactive=$(".inactive-edit", this);
 	    input.change(function(event) {
 		$.ajax({
 		    type:"POST",
@@ -154,12 +156,27 @@ function ProfileXBlock(runtime, element, data) {
 		    data: JSON.stringify({'field': options.field, 
 					  'value' : input.val()})
 		});
+		$(".active-inactive-container",container).removeClass('active');
+		inactive.text(input.val());
+	    });
+	    input.blur(function(event){
+		$(".active-inactive-container",container).removeClass('active');
+	    });
+	    input.focusout(function(event){
+		$(".active-inactive-container",container).removeClass('active');
+	    });
+	    $(".active-inactive-container",this).click(function(event) {
+		event.preventDefault();
+		$(".active-inactive-container",container).addClass('active');
+		input.focus();
 	    });
 	}
 
 	$.fn.ProfileContactBox = function( options ) {
 	    this.ProfileTemplateBlock("profile_contact_box", options);
+	    var inactive=$(".inactive-edit", this);
 	    var input=$("input", this);
+	    var container = this;
 	    input.change(function(event) {
 		$.ajax({
 		    type:"POST",
@@ -167,6 +184,18 @@ function ProfileXBlock(runtime, element, data) {
 		    data: JSON.stringify({'field': options.field, 
 					  'value' : input.val()})
 		});
+		$(".active-inactive-container",element).removeClass('active');
+	    });
+	    input.blur(function(event){
+		$(".active-inactive-container",container).removeClass('active');
+	    });
+	    input.focusout(function(event){
+		$(".active-inactive-container",container).removeClass('active');
+	    });
+	    $(".active-inactive-container",this).click(function(event) {
+		event.preventDefault();
+		$(".active-inactive-container",container).addClass('active');
+		input.focus();
 	    });
 	}
 
@@ -192,7 +221,9 @@ function ProfileXBlock(runtime, element, data) {
 
 	$.fn.ProfileTextArea = function( options ) {
 	    this.ProfileTemplateBlock("profile_text_area", options);
+	    var container = this;
 	    var input=$("textarea", this);
+	    var inactive=$(".inactive-edit", this);
 	    input.change(function(event) {
 		$.ajax({
 		    type:"POST",
@@ -200,6 +231,19 @@ function ProfileXBlock(runtime, element, data) {
 		    data: JSON.stringify({'field': options.field, 
 					  'value' : input.val()})
 		});
+		$(".active-inactive-container",container).removeClass('active');
+		inactive.text(input.val());
+	    });
+	    	    input.blur(function(event){
+		$(".active-inactive-container",container).removeClass('active');
+	    });
+	    input.focusout(function(event){
+		$(".active-inactive-container",container).removeClass('active');
+	    });
+	    $(".active-inactive-container",this).click(function(event) {
+		event.preventDefault();
+		$(".active-inactive-container",container).addClass('active');
+		input.focus();
 	    });
 	}
 

@@ -8,11 +8,34 @@
     cursor: pointer;
 }
 
+.active .active-edit{
+    display:block;
+}
+
+.inactive-edit {
+    font-weight:bold; 
+    text-indent:25px; 
+    border-width: 1px; 
+    border-style: solid;
+    width: 100%; 
+    border-color: #dddddd;
+    background-color: #fdfdfd;
+}
+
+.profile_one_liner .inactive-edit {
+    height:19px;
+}
+
+.active .inactive-edit{
+    display:none;
+}
+
 .active-edit{
+    display:none;
 }
 
 .inactive-edit{
-    display:none;
+    display:block;
 }
 
 body {
