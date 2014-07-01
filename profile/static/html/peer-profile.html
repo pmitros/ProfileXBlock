@@ -1,0 +1,103 @@
+<div id="pagewrap">
+  <div class="profileblock" />
+</div>
+<!-- /wrapper -->
+
+<script type="x-tmpl-mustache" id="profile_contact_info">
+    <div> 
+      {{#children}}
+      {{{render}}}
+      {{/children}}
+    </div>
+  </p>
+</script>
+
+<script type="x-tmpl-mustache" id="profile_contact_box">
+  <span title="{{help}}">
+    <img src="{{icon}}"/>
+    <span style="width:150px; display:inline-block; text-align:right"> {{label}} </span>
+    <input type="text" placeholder="{{placeholder}}" value="{{value}}" style="width:125px"/>
+  </span><br>
+</script>
+
+<script type="x-tmpl-mustache" id="profile_block">
+	<h1 style="text-align:left">{{data.profile_data.edx_name}}</h1>
+
+	<div class="wrapper grid2">
+	    {{#children}}
+	    {{{render}}}
+	    {{/children}}
+	</div>
+</script>
+
+<script type="x-tmpl-mustache" id="profile_column">
+  <div class="col">
+    {{#children}}
+    <article>{{{render}}}</article>
+    {{/children}}
+  </div>
+</script>
+
+<script id="profile_overview" type="x-tmpl-mustache">
+</script>
+
+<script id="profile_form" type="x-tmpl-mustache">
+  {{#children}}
+  {{{render}}}
+  {{/children}}
+</script>
+
+<script type="x-tmpl-mustache" id="profile_one_liner">
+<div style="display:flex;" class="profile_one_liner">
+  <div> {{question}}:</div>
+  <div class="active-inactive-container" style="flex-grow:1; padding:0px 10px 0px 10px;"> 
+    <div class="inactive-edit">{{value}}</div>
+    <div class="active-edit">
+      <input type="text" placeholder="{{placeholder}}" value="{{value}}"/> 
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="x-tmpl-mustache" id="profile_dropdown">
+<div style="display:flex">
+     <div style="flex-grow; ">Age:</div> 
+     <div class="active-inactive-container">
+<!--       <div class="inactive-edit">{{choices.value}}</div> -->
+       <select>
+	 {{#choices}}
+	 <option {{selected}}>{{item}}</option>
+	 {{/choices}}
+       </select>
+     </div>
+</div></script>
+
+<script type="x-tmpl-mustache" id="profile_text_area">
+  <p> {{question}} </p>
+     <div class="active-inactive-container">
+       <div class="inactive-edit" style="min-height:22px;">{{value}}</div>
+       <div class="active-edit">
+         <textarea placeholder="{{placeholder}}" style="width:95%;" rows="{{rows}}">{{value}}</textarea>  
+       </div>
+     </div>
+</script>
+
+<script id="photo" type="x-tmpl-mustache">
+  <center>
+    <img height=211 width=196 src="PHOTO_URL">
+  </center>
+</script>
+
+<script id="profile_asset_map" type="template/json">
+{
+"email": "email-16.png",
+"facebook": "facebook-3-16.png",
+"github": "github-16.png",
+"google-plus": "google-plus-4-16.png",
+"linkedin": "linkedin-16.png",
+"pages": "pages-3-16.png",
+"phone": "phone-16.png",
+"skype": "skype-16.png",
+"twitter": "twitter-16.png"
+}
+</script>
