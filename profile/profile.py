@@ -7,7 +7,7 @@ import pkg_resources
 #import mako
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Dict
+from xblock.fields import Scope, Dict#, String
 from xblock.fragment import Fragment
 
 import profile_json
@@ -34,10 +34,18 @@ class ProfileXBlock(XBlock):
         help="The user's profile information",
     )
 
+    # view = String{
+    #     default="student", 
+    #     scope=Scope.settings
+    #     }
+
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
+
+    def peer_view(self, context=None):
+        return "Hello"
 
     # TO-DO: change this view to display your data your own way.
     def student_view(self, context=None):
@@ -88,9 +96,15 @@ class ProfileXBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("ProfileXBlock",
+            ("ProfileXBlock, edit view",
              """<vertical_demo>
-                <profile>
+                <profile view="student" name="profile">
+                </profile>
+                </vertical_demo>
+             """),
+            ("ProfileXBlock, peer view",
+             """<vertical_demo>
+                <profile view="peer" name="profile">
                 </profile>
                 </vertical_demo>
              """),
