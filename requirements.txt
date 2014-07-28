@@ -1,0 +1,1 @@
+-e git+https://github.com/pmitros/xblock-future.git#egg=xblock-future
