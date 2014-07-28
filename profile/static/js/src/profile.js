@@ -2,17 +2,6 @@
 var profile_asset_map; 
 
 function ProfileXBlock(runtime, element, data) {
-    var handlerUrl = runtime.handlerUrl(element, 'increment_count');
-
-    $('p', element).click(function(eventObject) {
-        $.ajax({
-            type: "POST",
-            url: handlerUrl,
-            data: JSON.stringify({"hello": "world"}),
-            success: updateCount
-        });
-    });
-
     (function ( $ ) {
 	$.fn.ProfileBlock = function( options ) {
 	    this[options['class']](options);
@@ -141,6 +130,15 @@ function ProfileXBlock(runtime, element, data) {
 		options.children[i]['id'] = new_id;
 		options.children[i]['value'] = data.profile_data[options.children[i].field]
 		options.children[i]["render"]='<div id="'+new_id+'"/>';
+		// This code was intended to take out undefined fields from the 
+		// peer view. It didn't work. Moving on for a moment, but will get
+		// back to this eventually so keeping it around. 
+//		if((options.children[i]['value'] === undefined) ||
+//		   (options.children[i]['value'] == '')) {
+//		    options.children[i] = undefined;
+//		    console.log(options.children[i]);
+//		}
+		    
 	    }
 	    this.html(Mustache.render($("#"+template).html(),options));
 	    for(i=0; i<options.children.length; i++){
@@ -154,6 +152,28 @@ function ProfileXBlock(runtime, element, data) {
 
 	$.fn.ProfileStaticText = function( options ) {
 	    this.html(Mustache.render($("#"+options.source).html(),options));
+	}
+
+	$.fn.ProfilePhoto = function( options ) {
+	    var photo_div = this;
+	    photo_div.html(Mustache.render($("#photo").html(),options));
+	    $(".profile_image_wrapper", photo_div).click(function(event){
+		$(".profile_photo_upload", photo_div).toggle();
+	    });
+	    $('.profile_photo_upload_input').on('change', function(event){
+		file = new FormData($(".profile_photo_upload_input", photo_div)[0]);
+		$.ajax({type: 'POST',
+			url: runtime.handlerUrl(element, 'upload_photo'),
+			data: file,
+			contentType: false,
+			cache: false, 
+			processData: false, 
+			async: false,
+			complete: function(result) {
+			    $(".profile_photo_upload", photo_div).hide();
+			}
+		});
+	    });
 	}
 
 	$.fn.ProfileContactInfo = function( options ) {

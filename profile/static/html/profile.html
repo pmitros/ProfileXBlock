@@ -93,9 +93,16 @@
 </script>
 
 <script id="photo" type="x-tmpl-mustache">
-  <center>
-    <img height=211 width=196 src="PHOTO_URL">
-  </center>
+  <div class="profile_photo_wrapper">
+    <div class="profile_image_wrapper">
+      <center>
+	<img height=211 width=196 src="PHOTO_URL">
+      </center>
+    </div>
+    <div class="profile_photo_upload">
+      <input type="file" class="profile_photo_upload_input"/>
+    </div>
+  </div>
 </script>
 
 <script id="profile_asset_map" type="template/json">

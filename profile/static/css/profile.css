@@ -1,5 +1,9 @@
 /* CSS for ProfileXBlock */
 
+.profile_photo_upload {
+    display:none;
+}
+
 .profile_block .count {
     font-weight: bold;
 }
