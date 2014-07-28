@@ -7,7 +7,7 @@ import pkg_resources
 #import mako
 
 from xblock.core import XBlock
-from xblock.fields import Scope, Dict#, String
+from xblock.fields import Scope, Dict, String
 from xblock.fragment import Fragment
 
 import profile_json
@@ -34,10 +34,10 @@ class ProfileXBlock(XBlock):
         help="The user's profile information",
     )
 
-    # view = String{
-    #     default="student", 
-    #     scope=Scope.settings
-    #     }
+    view = String(
+        default="student", 
+        scope=Scope.settings
+    )
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
@@ -69,9 +69,16 @@ class ProfileXBlock(XBlock):
 #        frag.add_javascript(self.resource_string("static/3rdparty/jquery.dropdown.min.js"))
         frag.add_css(self.resource_string("static/css/profile.css"))
         frag.add_javascript(self.resource_string("static/js/src/profile.js"))
+        profile_config = profile_json.profile_config
+        if self.view.lower() ==  "peer":
+                    profile_config = profile_json.peer_profile_config
         frag.initialize_js('ProfileXBlock', {'profile_data' : self.user_profile, 
-                                             'profile_config':profile_json.profile_config})
+                                             'profile_config':profile_config})
         return frag
+
+    @XBlock.handler
+    def upload_photo(self, data, suffix=''):
+        pass
 
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.

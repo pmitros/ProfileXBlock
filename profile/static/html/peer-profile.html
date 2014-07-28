@@ -49,12 +49,10 @@
 </script>
 
 <script type="x-tmpl-mustache" id="profile_one_liner">
-<div style="display:flex;" class="profile_one_liner">
-  <div> {{question}}</div>
-  <div class="active-inactive-container" style="flex-grow:1; padding:0px 10px 0px 10px;"> 
+  <div style="display:flex;" class="profile_one_liner">
+    <div> {{question}}</div>
     {{value}}
   </div>
-</div>
 </script>
 
 <script type="x-tmpl-mustache" id="profile_dropdown">
@@ -72,7 +70,7 @@
 
 <script type="x-tmpl-mustache" id="profile_text_area">
   <p> {{question}} </p>
-  <div class="profile_reponse">{{value}}</div>
+  {{value}}
 </script>
 
 <script id="photo" type="x-tmpl-mustache">

@@ -92,7 +92,7 @@ profile_config = {
 	 ]},
 	{"class" : "ProfileColumn", 
 	 "children" : [
-	     { "class" : "ProfileStaticText", 
+	     { "class" : "ProfilePhoto", 
 	       "source" : "photo"},
 	     { "class" : "ProfileForm", 
 	       "title" : "Background", 
@@ -121,7 +121,7 @@ peer_profile_config = {
     "children" : [
 	{"class" : "ProfileColumn", 
 	 "children" : [
-	     { "class" : "ProfileStaticText", 
+	     { "class" : "ProfilePhoto", 
 	       "source" : "photo"},
              {"class"    : "ProfileTextArea", 
               "placeholder" : "Biographical Information", 
