@@ -4,6 +4,7 @@ import os.path
 
 import pkg_resources
 
+from webob.response import Response
 #import mako
 
 from xblock.core import XBlock
@@ -19,6 +20,35 @@ def replace_template(source, dictionary):
     for key in dictionary:
         processed = processed.replace(key, dictionary[key])
     return processed
+
+image_types = {
+    'jpeg' : {
+        extension : [".jpeg", ".jpg"],
+        mimetype : ['image/jpeg', 'image/pjpeg'],
+        magic : ["ffd8"]
+        },
+    'png' : {
+        extension : [".png"],
+        mimetype : ['image/png'],
+        magic : ["89504e470d0a1a0a"]
+        },
+    'gif' : {
+        extension : [".gif"],
+        mimetype : ['image/gif'],
+        magic : ["474946383961", "474946383761"]
+        }
+    }
+
+def ValidatePhoto(request):
+    # First, check file 
+    fileType = ''
+    allowedTypes = ['.png', '.jpg', '.gif']
+    allowedMimeTypes = ['image/gif', 'image/jpeg', 'image/pjpeg', 'image/png']
+    fileTypeError = False
+    for allowedType in allowedTypes:
+        if str(request.POST['file'].file).endswith(allowedType):
+            fileType = allowedType
+    
 
 class ProfileXBlock(XBlock):
     """
@@ -77,8 +107,13 @@ class ProfileXBlock(XBlock):
         return frag
 
     @XBlock.handler
-    def upload_photo(self, data, suffix=''):
-        pass
+    def upload_photo(self, request, suffix=''):
+        
+        response = Response()
+        response.body = "{'status':'success'}"
+        response.headers['Content-Type'] = 'text/json'
+        return response
+        #return {'status':'success'}
 
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
