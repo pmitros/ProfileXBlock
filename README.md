@@ -13,18 +13,14 @@ e.g. as parents.
 This concept is inspired by the way profiles work for
 [meetups](http://www.meetup.com/), as well as NovoEd. 
 
-As of this writing (Jun 27, 2014), this XBlock is unfinished, but I am
+As of this writing (Jul 29, 2014), this XBlock is unfinished, but I am
 actively developing it. For example, 
 
 * There is a JSON configuration language, but the configuration is
   hard-coded in the XBlock
-* Photo uploads don't work. How to upload an image with XBlocks? 
 * The list of contact information (Facebook, etc.) is ugly
 * There is no way for students to view each others' profiles
-* Profile info is stored, but when a user refreshes, the form doesn't
-  repopulate with it.
 * Is there a better way to handle phone number (esp. regarding country codes?)
-* Should we edit live (as we do now), or have a save button? 
 * How should we phrase open-ended questions so we get clear,
   consistent answers?
 * Will users find the number of contact info input fields
