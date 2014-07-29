@@ -25,19 +25,19 @@ def replace_template(source, dictionary):
 
 image_types = {
     'jpeg' : {
-        extension : [".jpeg", ".jpg"],
-        mimetype : ['image/jpeg', 'image/pjpeg'],
-        magic : ["ffd8"]
+        'extension' : [".jpeg", ".jpg"],
+        'mimetype' : ['image/jpeg', 'image/pjpeg'],
+        'magic' : ["ffd8"]
         },
     'png' : {
-        extension : [".png"],
-        mimetype : ['image/png'],
-        magic : ["89504e470d0a1a0a"]
+        'extension' : [".png"],
+        'mimetype' : ['image/png'],
+        'magic' : ["89504e470d0a1a0a"]
         },
     'gif' : {
-        extension : [".gif"],
-        mimetype : ['image/gif'],
-        magic : ["474946383961", "474946383761"]
+        'extension' : [".gif"],
+        'mimetype' : ['image/gif'],
+        'magic' : ["474946383961", "474946383761"]
         }
     }
 
