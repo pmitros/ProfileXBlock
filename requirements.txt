@@ -1,1 +1,3 @@
 -e git+https://github.com/pmitros/xblock-future.git#egg=xblock-future
+# This is PIL, but a distribution that's a little bit better maintained. 
+pillow

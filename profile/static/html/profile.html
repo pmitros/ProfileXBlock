@@ -96,11 +96,13 @@
   <div class="profile_photo_wrapper">
     <div class="profile_image_wrapper">
       <center>
-	<img height=211 width=196 src="PHOTO_URL">
+	<img class="profile_photo_image" src="PHOTO_URL">
       </center>
     </div>
     <div class="profile_photo_upload">
-      <input type="file" class="profile_photo_upload_input"/>
+      <form name="photo_upload_form" id="photo_upload_form" class="photo_upload_form">
+      <input type="file" name="file" class="profile_photo_upload_input"/>
+      </form>
     </div>
   </div>
 </script>

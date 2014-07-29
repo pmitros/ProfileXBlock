@@ -161,7 +161,7 @@ function ProfileXBlock(runtime, element, data) {
 		$(".profile_photo_upload", photo_div).toggle();
 	    });
 	    $('.profile_photo_upload_input').on('change', function(event){
-		file = new FormData($(".profile_photo_upload_input", photo_div)[0]);
+		file = new FormData($(".photo_upload_form", photo_div)[0]);
 		$.ajax({type: 'POST',
 			url: runtime.handlerUrl(element, 'upload_photo'),
 			data: file,
@@ -171,6 +171,8 @@ function ProfileXBlock(runtime, element, data) {
 			async: false,
 			complete: function(result) {
 			    $(".profile_photo_upload", photo_div).hide();
+			    url = JSON.parse(result.responseText).url
+			    $(".profile_photo_image", photo_div).attr("src", url+"?"+new Date().getTime());
 			}
 		});
 	    });
