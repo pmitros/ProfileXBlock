@@ -11,6 +11,8 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Dict, String
 from xblock.fragment import Fragment
 
+from xblockfuture import futureclass
+
 import profile_json
 
 assets = ["email-16.png", "facebook-3-16.png", "github-16.png", "google-plus-4-16.png", "linkedin-16.png", "pages-3-16.png", "phone-16.png", "profile.png", "skype-16.png", "twitter-16.png"]
@@ -50,6 +52,7 @@ def ValidatePhoto(request):
             fileType = allowedType
     
 
+@futureclass()
 class ProfileXBlock(XBlock):
     """
     This XBlock maintains a student profile page. 
