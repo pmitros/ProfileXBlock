@@ -141,9 +141,13 @@ class ProfileXBlock(XBlock):
             params[asset] = self.runtime.local_resource_url(self, os.path.join("public/assets",asset))
         html = replace_template(self.resource_string("static/html/profile.html"), params)
         frag = Fragment(html)
-        frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/3rdParty/mustache.js'))
-        frag.add_css_url(self.runtime.local_resource_url(self, 'public/3rdParty/jquery-ui.css'))
-        frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/3rdParty/jquery-ui.min.js'))
+        frag.add_javascript_url('//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js')
+        #frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/3rdParty/mustache.js'))
+        frag.add_css_url('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/css/jquery-ui.min.css')
+        #frag.add_css_url(self.runtime.local_resource_url(self, 'public/3rdParty/jquery-ui.css'))
+        frag.add_javascript_url(self.runtime.local_resource_url(self, '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'))
+        # frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/3rdParty/jquery-ui.min.js'))
+
 
 # TODO: This would give nicer selects
 #        frag.add_css(self.resource_string("static/3rdparty/jquery.dropdown.css"))
