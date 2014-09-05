@@ -97,7 +97,7 @@ body {
 	margin: 0 auto;
 }
 
-.wrapper {
+.profile_wrapper {
 	overflow: hidden;
 }
 
@@ -188,24 +188,24 @@ MEDIA QUERIES
 	}
 }
 
-article {
+.profile_block article {
   border-width: 4px 0px 0px 0px;
   border-style: solid;
 }
 
-article:nth-of-type(100n) {
+.profile_block article:nth-of-type(100n) {
   border-color: azure;
 }
 
-article:nth-of-type(100n+1) {
+.profile_block article:nth-of-type(100n+1) {
   border-color: aliceblue;
 }
 
-article:nth-of-type(100n+2) {
+.profile_block article:nth-of-type(100n+2) {
   border-color: antiquewhite;
 }
 
-article:nth-of-type(100n+3) {
+.profile_block article:nth-of-type(100n+3) {
   border-color: aquamarine;
 }
 
