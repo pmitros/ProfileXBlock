@@ -4,19 +4,19 @@
     display:none;
 }
 
-.profile_block .count {
+.profileblock .count {
     font-weight: bold;
 }
 
-.profile_block p {
+.profileblock p {
     cursor: pointer;
 }
 
-.profile_block .active .active-edit{
+.profileblock .active .active-edit{
     display:block;
 }
 
-.profile_block .inactive-edit {
+.profileblock .inactive-edit {
     font-weight:bold; 
     padding: 0px 10px 0px 10px;
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -27,19 +27,19 @@
     background-color: #fdfdfd;
 }
 
-.profile_block  .profile_one_liner .inactive-edit {
+.profileblock  .profile_one_liner .inactive-edit {
     height:19px;
 }
 
-.profile_block .active .inactive-edit{
+.profileblock .active .inactive-edit{
     display:none;
 }
 
-.profile_block .active-edit{
+.profileblock .active-edit{
     display:none;
 }
 
-.profile_block .inactive-edit{
+.profileblock .inactive-edit{
     display:block;
 }
 
@@ -55,39 +55,38 @@ body {
 	margin: 0 auto;
 }
 
-.profile_block a {
+.profileblock a {
 	color: #69C;
 	text-decoration: none;
 }
 
-.profile_block a:hover {
+.profileblock a:hover {
 	color: #F60;
 }
 
-.profile_block h1 {
+.profileblock h1 {
 	font: 1.7em;
 	line-height: 110%;
 }
 
-.profile_block h1, h2, h3 {
+.profileblock h1, h2, h3 {
 	color: #555;
 }
 
-.profile_block h3 {
+.profileblock h3 {
 	border-top: solid 1px #eee;
 	padding: 20px 0;
 	margin: 20px 0 0;
 	font-size: 150%;
 }
 
-.profile_block article {
-	background: #fafafa;
-        border-top:2px;
-	margin: 0 0 20px;
+.profileblock article {
+	border-width: 4px 0px 0px 0px;
+	border-style: solid;
 }
 
 /* set html5 elements to block */
-.profile article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+.profileblock article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
     display: block;
 }
 
@@ -110,6 +109,7 @@ COLUMN
 	margin-bottom: 30px;
 	padding-right : 10px;
 }
+
 .fullwidth .profilecol {
 	float: none;
 	margin-left: 0;
@@ -188,24 +188,19 @@ MEDIA QUERIES
 	}
 }
 
-.profile_block article {
-  border-width: 4px 0px 0px 0px;
-  border-style: solid;
-}
-
-.profile_block article:nth-of-type(100n) {
+.profileblock article:nth-of-type(100n) {
   border-color: azure;
 }
 
-.profile_block article:nth-of-type(100n+1) {
+.profileblock article:nth-of-type(100n+1) {
   border-color: aliceblue;
 }
 
-.profile_block article:nth-of-type(100n+2) {
+.profileblock article:nth-of-type(100n+2) {
   border-color: antiquewhite;
 }
 
-.profile_block article:nth-of-type(100n+3) {
+.profileblock article:nth-of-type(100n+3) {
   border-color: aquamarine;
 }
 
