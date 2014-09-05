@@ -118,7 +118,7 @@ edx_profile_config = {
 		    "rows":4},
 		   {"class"    : "ProfileTextArea", 
 		    "question" : "Finally, what drew you to edX? Why are you here?", 
-		    "placeholder" : "I want to modernize education in Walachia", 
+		    "placeholder" : "I want to modernize education in Florin", 
 		    "field" : "motiviation",
 		    "rows":4}
 	       ]}
