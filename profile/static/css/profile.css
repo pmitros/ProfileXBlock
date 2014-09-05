@@ -79,6 +79,12 @@
 	margin: 0 auto !important;
 }
 
+.profileblock p {
+    line-height: 16.18px !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 11.111111640930176px !important;
+}
+
 .profileblock a {
 	color: #69C !important;
 	text-decoration: none !important;
@@ -90,11 +96,12 @@
 
 .profileblock h1 {
 	font: 1.7em !important;
-	line-height: 110% !important;
+	/*line-height: 110% !important;*/
 	font-family: Arial, Helvetica, sans-serif !important;
 	height: 14.44444465637207px !important;
 	line-height: 14.877721786499023px !important;
-	margin-bottom: 0px !important;
+	margin-bottom: 20px !important;
+	font-size: 17.78px !important;
 }
 
 .profileblock h1, h2, h3 {
