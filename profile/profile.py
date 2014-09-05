@@ -145,7 +145,7 @@ class ProfileXBlock(XBlock):
         #frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/3rdParty/mustache.js'))
         frag.add_css_url('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/css/jquery-ui.min.css')
         #frag.add_css_url(self.runtime.local_resource_url(self, 'public/3rdParty/jquery-ui.css'))
-        frag.add_javascript_url(self.runtime.local_resource_url(self, '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js'))
+        frag.add_javascript_url('//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js')
         # frag.add_javascript_url(self.runtime.local_resource_url(self, 'public/3rdParty/jquery-ui.min.js'))
 
 

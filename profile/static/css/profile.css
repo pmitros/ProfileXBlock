@@ -12,11 +12,11 @@
     cursor: pointer;
 }
 
-.active .active-edit{
+.profile_block .active .active-edit{
     display:block;
 }
 
-.inactive-edit {
+.profile_block .inactive-edit {
     font-weight:bold; 
     padding: 0px 10px 0px 10px;
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -27,22 +27,25 @@
     background-color: #fdfdfd;
 }
 
-.profile_one_liner .inactive-edit {
+.profile_block  .profile_one_liner .inactive-edit {
     height:19px;
 }
 
-.active .inactive-edit{
+.profile_block .active .inactive-edit{
     display:none;
 }
 
-.active-edit{
+.profile_block .active-edit{
     display:none;
 }
 
-.inactive-edit{
+.profile_block .inactive-edit{
     display:block;
 }
 
+/* This is kind of aggressive, but the block is designed to 
+   be on it's own page. This strips out some of the bad 
+   styling around it otherwise. */
 body {
 	background: #fff;
 	color: #666;
@@ -51,28 +54,33 @@ body {
 	max-width: 96%;
 	margin: 0 auto;
 }
-a {
+
+.profile_block a {
 	color: #69C;
 	text-decoration: none;
 }
-a:hover {
+
+.profile_block a:hover {
 	color: #F60;
 }
-h1 {
+
+.profile_block h1 {
 	font: 1.7em;
 	line-height: 110%;
 }
-h1, h2, h3 {
+
+.profile_block h1, h2, h3 {
 	color: #555;
 }
-h3 {
+
+.profile_block h3 {
 	border-top: solid 1px #eee;
 	padding: 20px 0;
 	margin: 20px 0 0;
 	font-size: 150%;
 }
 
-article {
+.profile_block article {
 	background: #fafafa;
         border-top:2px;
 	margin: 0 0 20px;
@@ -83,11 +91,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     display: block;
 }
 
-#pagewrap {
+#profile_pagewrap {
 	width: 978px;
 	max-width: 96%;
 	margin: 0 auto;
 }
+
 .wrapper {
 	overflow: hidden;
 }
@@ -95,32 +104,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /************************************************************************************
 COLUMN
 *************************************************************************************/
-.col {
+.profilecol {
 	float: left;
 	margin-left: 3.2%;
 	margin-bottom: 30px;
 	padding-right : 10px;
 }
-.fullwidth .col {
+.fullwidth .profilecol {
 	float: none;
 	margin-left: 0;
 }
 /* grid4 col */
-.grid4 .col {
+.grid4 .profilecol {
 	width: 22.6%;
 }
 /* grid3 col */
-.grid3 .col {
+.grid3 .profilecol {
 	width: 31.2%;
 }
 /* grid2 col */
-.grid2 .col {
+.grid2 .profilecol {
 	width: 48.4%;
 }
 /* clear col */
-.grid4 .col:nth-of-type(4n+1),
-.grid3 .col:nth-of-type(3n+1),
-.grid2 .col:nth-of-type(2n+1) {
+.grid4 .profilecol:nth-of-type(4n+1),
+.grid3 .profilecol:nth-of-type(3n+1),
+.grid2 .profilecol:nth-of-type(2n+1) {
 	margin-left: 0;
 
 }
@@ -131,14 +140,14 @@ MEDIA QUERIES
 /* reset cols to 3-column */
 @media screen and (max-width: 740px) {
 	/* grid4 */
-	.grid4 .col {
+	.grid4 .profilecol {
 		width: 31.2%;
 	}
-	.grid4 .col:nth-of-type(4n+1) {
+	.grid4 .profilecol:nth-of-type(4n+1) {
 		margin-left: 3.2%;
 
 	}
-	.grid4 .col:nth-of-type(3n+1) {
+	.grid4 .profilecol:nth-of-type(3n+1) {
 		margin-left: 0;
 
 	}
@@ -147,24 +156,24 @@ MEDIA QUERIES
 /* reset cols to 2-column */
 @media screen and (max-width: 600px) {
 	/* grid4 */
-	.grid4 .col {
+	.grid4 .profilecol {
 		width: 48.4%;
 	}
-	.grid4 .col:nth-of-type(3n+1) {
+	.grid4 .profilecol:nth-of-type(3n+1) {
 		margin-left: 3.2%;
 	}
-	.grid4 .col:nth-of-type(2n+1) {
+	.grid4 .profilecol:nth-of-type(2n+1) {
 		margin-left: 0;
 	}
 
 	/* grid3 */
-	.grid3 .col {
+	.grid3 .profilecol {
 		width: 48.4%;
 	}
-	.grid3 .col:nth-of-type(3n+1) {
+	.grid3 .profilecol:nth-of-type(3n+1) {
 		margin-left: 3.2%;
 	}
-	.grid3 .col:nth-of-type(2n+1) {
+	.grid3 .profilecol:nth-of-type(2n+1) {
 		margin-left: 0;
 	}
 }
@@ -172,7 +181,7 @@ MEDIA QUERIES
 /* reset cols to fullwidth */
 @media screen and (max-width: 400px) {
 	/* grid4 */
-	.col {
+	.profilecol {
 		width: 100% !important;
 		margin-left: 0 !important;
 
