@@ -87,7 +87,7 @@ body {
 }
 
 /* set html5 elements to block */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+.profile article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
     display: block;
 }
 
