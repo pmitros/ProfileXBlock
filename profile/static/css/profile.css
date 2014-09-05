@@ -39,6 +39,10 @@
     height:19px !important;
 }
 
+.profileblock .profile_ol_edit {
+    height:19px !important;
+}
+
 .profileblock .active .inactive-edit{
     display:none !important;
 }
