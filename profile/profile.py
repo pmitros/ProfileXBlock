@@ -14,7 +14,8 @@ from xblock.fields import Scope, Dict, String
 from xblock.fragment import Fragment
 from xblock.reference.plugins import Filesystem
 
-from xblockfuture import futureclass
+# Studio fixed this, I believe
+#from xblockfuture import futureclass
 
 import profile_json
 
@@ -90,7 +91,8 @@ def ValidatePhoto(request):
     return (filetype, content)
 
 
-@futureclass()
+# For now, we're just using the Studio fix, which I think is now in Studio
+#@futureclass()
 @XBlock.needs('fs')
 class ProfileXBlock(XBlock):
     """
