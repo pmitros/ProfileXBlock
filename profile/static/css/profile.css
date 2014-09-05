@@ -43,10 +43,22 @@
     display:block;
 }
 
-/* This is kind of aggressive, but the block is designed to 
-   be on it's own page. This strips out some of the bad 
-   styling around it otherwise. */
-body {
+/* This is kind of aggressive, but the block is designed to be on it's
+   own page without much styling around it. The styling in
+   edx-platform is sensible, but workbench has issues. This strips out
+   some of the bad styling Workbench would put around it otherwise. */
+.view-workbench {
+	background: #fff;
+	color: #666;
+	font: 85%/140% Arial, Helvetica, sans-serif;
+	width: 800px;
+	max-width: 96%;
+	margin: 0 auto;
+}
+
+/* In edx-platform, we restrict this styling to just the XBlock
+   itself. */
+.profileblock {
 	background: #fff;
 	color: #666;
 	font: 85%/140% Arial, Helvetica, sans-serif;
