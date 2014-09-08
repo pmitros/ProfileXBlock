@@ -7,7 +7,7 @@
 }
 
 .profile_photo_upload {
-    display:none !important;
+    display:none;
 }
 
 .profileblock .count {
@@ -19,7 +19,7 @@
 }
 
 .profileblock .active .active-edit{
-    display:block !important;
+    display:block;
 }
 
 .profileblock .inactive-edit {
@@ -44,15 +44,15 @@
 }
 
 .profileblock .active .inactive-edit{
-    display:none !important;
+    display:none;
 }
 
 .profileblock .active-edit{
-    display:none !important;
+    display:none;
 }
 
 .profileblock .inactive-edit{
-    display:block !important;
+    display:block;
 }
 
 /* This is kind of aggressive, but the block is designed to be on it's
@@ -134,7 +134,7 @@
 
 /* set html5 elements to block */
 .profileblock article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
-    display: block !important;
+    display: block;
 }
 
 #profile_pagewrap {
