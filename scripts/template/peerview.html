@@ -279,7 +279,7 @@ function render_user_table(data) {
    img = '<div style="display:table-cell"><img style="height:auto; width:auto; max-width:100px; max-height:100px" src="{{{image_source}}}" class="profile_{{{count}}}"/></div>'
    
    for(var i=0; i<data.length; i++) {
-      div = div + Mustache.render(img, {'image_source':"../"+data[i]['photo'], 'count':i});
+      div = div + Mustache.render(img, {'image_source':"http://pmitros.edx.org/pmitros/profiles/"+data[i]['photo'], 'count':i});
       if(i%3 == 2) {
          html = html + Mustache.render(row, {'row':div});
          div = "";
@@ -295,16 +295,20 @@ function event_user_table(data){
       $( ".profile_"+i ).mouseover(function(event) {
          // JavaScript closures break and i=27 here. Poor work-around to get back i. 
          offset = event.currentTarget.className.substring(8);
-         $("#user_info").html(Mustache.render($(".user_data_template").text(), user_data_list[offset]));
+         d = user_data_list[offset]
+         d['url_base'] = "http://pmitros.edx.org/pmitros/profiles/"
+         $("#user_info").html(Mustache.render($(".user_data_template").text(), d));
       });
    }
 }
 
 $(function() {
    if(window.location.hostname == "localhost") {
-      url = "../profiles.json"
+      url = "../profiles.json";
    } else if (window.location.hostname == "edge.edx.org") {
-      url = "edge.edx.org/c4x/edX/edX_Insider/asset/profiles.json"
+      url = "edge.edx.org/c4x/edX/edX_Insider/asset/profiles.json";
+   } else {
+      url = "profiles.json";
    }
    jQuery.ajax(url, { dataType: "json" }).done(function(data) {
       user_data_list = data;
@@ -323,7 +327,7 @@ $(function() {
 	    <div class="profile_photo_wrapper">
 	      <div class="profile_image_wrapper">
 		<center>
-		  <img class="profile_photo_image" src="../{{photo}}"> <br>
+		  <img class="profile_photo_image" src="http://pmitros.edx.org/pmitros/profiles/{{photo}}"> <br>
 		  {{{ insider_org-position }}}
 		</center>
 	      </div>
@@ -339,15 +343,15 @@ $(function() {
 	    <p> {{ insider_techbackground }} </p>
 	</div></article>
 	<article><div id="profile_block_0_2">
-{{# edx_website }} <div class="p"> <a href="{{ edx_website }}"><img src="../static/pages-3-16.png"> <a href="{{ edx_website}} ">{{ edx_website }}</a></div>  {{/ edx_website }}
-{{# edx_email }} <div class="p"> <a href="mailto:{{ edx_email }}"><img src="../static/email-16.png"> {{ edx_email }}</a></div>  {{/ edx_email }}
-{{# edx_github }} <div class="p"> <a href="http://github.com/{{ edx_github }}"><img src="../static/github-16.png"> http://github.com/{{ edx_github }}</a></div>  {{/ edx_github }}
-{{# edx_facebook }}  <div class="p"> <a href="http://facebook.com/{{ edx_facebook }}"><img src="../static/facebook-3-16.png"> http://facebook.com/{{ edx_facebook }}</a></div> {{/ edx_facebook }}
-{{# edx_googleplus }} <div class="p"> <a href="http://plus.google.com/{{ edx_googleplus }}"><img src="../static/google-plus-4-16.png"> http://plus.google.com/{{ edx_googleplus }}</a></div>  {{/ edx_googleplus }}
-{{# edx_linkedin }} <div class="p"> <a href="http://linkedin.com/in/{{ edx_linkedin }}"><img src="../static/linkedin-16.png"> http://linkedin.com/in/{{ edx_linkedin }}</a></div>  {{/ edx_linkedin }}
-{{# edx_phone }} <div class="p"> <img src="../static/phone-16.png" /> {{ edx_phone }}</div>  {{/ edx_phone }}
-{{# edx_skype }} <div class="p"> <a href="skype:{{ edx_skype }}?call"><img src="../static/skype-16.png" /> {{ edx_skype }}</a></div>  {{/ edx_skype }}
-{{# edx_twitter }} <div class="p"> <a href="http://twitter.com/{{ edx_twitter }}"><img src="../static/twitter-16.png"> http://twitter.com/{{ edx_twitter }}</a></div>  {{/ edx_twitter }}
+{{# edx_website }} <div class="p"> <a href="{{ edx_website }}"><img src="{{ url_base }}static/pages-3-16.png"> <a href="{{ edx_website}} ">{{ edx_website }}</a></div>  {{/ edx_website }}
+{{# edx_email }} <div class="p"> <a href="mailto:{{ edx_email }}"><img src="{{ url_base }}static/email-16.png"> {{ edx_email }}</a></div>  {{/ edx_email }}
+{{# edx_github }} <div class="p"> <a href="http://github.com/{{ edx_github }}"><img src="{{ url_base }}static/github-16.png"> http://github.com/{{ edx_github }}</a></div>  {{/ edx_github }}
+{{# edx_facebook }}  <div class="p"> <a href="http://facebook.com/{{ edx_facebook }}"><img src="{{ url_base }}static/facebook-3-16.png"> http://facebook.com/{{ edx_facebook }}</a></div> {{/ edx_facebook }}
+{{# edx_googleplus }} <div class="p"> <a href="http://plus.google.com/{{ edx_googleplus }}"><img src="{{ url_base }}static/google-plus-4-16.png"> http://plus.google.com/{{ edx_googleplus }}</a></div>  {{/ edx_googleplus }}
+{{# edx_linkedin }} <div class="p"> <a href="http://linkedin.com/in/{{ edx_linkedin }}"><img src="{{ url_base }}static/linkedin-16.png"> http://linkedin.com/in/{{ edx_linkedin }}</a></div>  {{/ edx_linkedin }}
+{{# edx_phone }} <div class="p"> <img src="{{ url_base }}static/phone-16.png" /> {{ edx_phone }}</div>  {{/ edx_phone }}
+{{# edx_skype }} <div class="p"> <a href="skype:{{ edx_skype }}?call"><img src="{{ url_base }}static/skype-16.png" /> {{ edx_skype }}</a></div>  {{/ edx_skype }}
+{{# edx_twitter }} <div class="p"> <a href="http://twitter.com/{{ edx_twitter }}"><img src="{{ url_base }}static/twitter-16.png"> http://twitter.com/{{ edx_twitter }}</a></div>  {{/ edx_twitter }}
 	</div></article>
 	<article><div id="profile_block_0_7>"stu
 {{# edx_age }} <div class="p"> Age: {{ edx_age }}</div>  {{/ edx_age }}

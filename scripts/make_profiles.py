@@ -46,7 +46,7 @@ for item in profile_items:
     if(os.path.exists(filename)):
         item['photo'] = filename
     else:
-        item['photo'] = "static/profile.png"
+        item['photo'] = "profile.png"
     # While we're at it, clean up keys to not have dots (so they work for CSS)
     fix_dict(item)
 
