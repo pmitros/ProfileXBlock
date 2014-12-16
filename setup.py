@@ -19,15 +19,15 @@ setup(
     version='0.1',
     description='profile XBlock',   # TODO: write a better description.
     packages=[
-        'profile',
+        'profilepage',
     ],
     install_requires=[
         'XBlock',
     ],
     entry_points={
         'xblock.v1': [
-            'profile = profile:ProfileXBlock',
+            'profilepage = profilepage:ProfileXBlock',
         ]
     },
-    package_data=package_data("profile", "static"),
+    package_data=package_data("profilepage", "static"),
 )

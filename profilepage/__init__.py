@@ -1,0 +1,1 @@
+from .profilepage import ProfileXBlock
